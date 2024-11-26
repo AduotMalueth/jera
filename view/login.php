@@ -42,9 +42,9 @@ if ($result->num_rows === 1) {
         $_SESSION['role'] = $userrole;
         
         if ($userrole === 'admin' ) {
-            header('Location: ../jera/view/Admin_dashboard.php');
+            header('Location: ../view/Admin_dashboard.php');
         } else {
-            header('Location: ../jera/view/regular_dashboard.php');
+            header('Location: ../view/regular_dashboard.php');
         }
         exit;
     } else {
@@ -66,7 +66,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JERAConnect - Login</title>
-    <link rel="stylesheet" href="../jera/css/login.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     <div class="auth-container">

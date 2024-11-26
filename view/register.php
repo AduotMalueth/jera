@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Execute the query
     if ($stmt->execute()) {
         // Redirect to login page after successful registration
-        header('Location: ../jera/view/login.php'); // Redirect to login page
+        header('Location: ../view/login.php'); // Redirect to login page
         exit();
     } else {
         //die('Error inserting user. Please try again later.');

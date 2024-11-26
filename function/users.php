@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Management</title>
-    <link rel="stylesheet" href="../JERAConnect1/css/user.css">
+    <link rel="stylesheet" href="..Connect1/css/user.css">
     <style>
         /* Styles for the page, same as before */
     </style>
@@ -15,8 +15,8 @@
     <nav class="navbar">
         <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
         <ul>
-            <li><a href="../JERAConnect1/view/regular_dashboard.php">Dashboard</a></li>
-            <li><a href="../JERAConnect1/function/users.php">Users</a></li>
+            <li><a href="..Connect1/view/regular_dashboard.php">Dashboard</a></li>
+            <li><a href="..Connect1/function/users.php">Users</a></li>
         </ul>
     </nav>
 

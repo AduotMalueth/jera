@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Comment Section</title>
-    <link rel="stylesheet" href="../JERAConnect1/css/comment.css">
+    <link rel="stylesheet" href="..Connect1/css/comment.css">
 </head>
 <body>
     <div class="comment-section">
@@ -44,6 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
         <div id="commentsList"></div>
     </div>
-    <script src="../JERAConnect1/js/comment.js"></script>
+    <script src="..Connect1/js/comment.js"></script>
 </body>
 </html>

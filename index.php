@@ -25,11 +25,11 @@ if ($conn->connect_error) {
         </div>
         <nav>
             <ul>
-                <li><a href="./jera/action/about.php">About Us</a></li>
-                <li><a href="./jera/action/services.php">Services</a></li>
-                <li><a href="./jera/view/register.php">Register Here</a></li>
-                <li><a href="./jera/view/login.php">Login</a></li>
-                <li><a href="./jera/action/team.php">Our Team</a></li>
+                <li><a href="./action/about.php">About Us</a></li>
+                <li><a href="./action/services.php">Services</a></li>
+                <li><a href="./view/register.php">Register Here</a></li>
+                <li><a href="./view/login.php">Login</a></li>
+                <li><a href="./action/team.php">Our Team</a></li>
             </ul>
         </nav>
     </header>

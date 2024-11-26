@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Team</title>
-    <link rel="stylesheet" href="../jera/css/team.css">
+    <link rel="stylesheet" href="../css/team.css">
 </head>
 <body>
 <div class="team-section">
