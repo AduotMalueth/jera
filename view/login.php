@@ -1,64 +1,67 @@
 <?php
 // Include your database connection
-//include './db/config.php';
 include('../db/config.php');
+
 // Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Collect and sanitize form data
-   // var_dump($_POST);
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
     $password = isset($_POST['password']) ? trim($_POST['password']) : '';
-    $confirm_password = isset($_POST['confirm_password']) ? trim($_POST['confirm_password']) : '';
-    $userrole = isset($_POST['role']) ? trim($_POST['role']) : ''; // Get role from the form
+    $userrole = isset($_POST['role']) ? trim($_POST['role']) : '';
+
     // Validate form fields
-    if (empty($email) || empty($password) || empty($confirm_password) || empty($userrole)) {
-       // die('Please fill in all required fields.');
+    if (empty($email) || empty($password) || empty($userrole)) {
+        die('Please fill in all required fields.');
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-       // die('Invalid email format.');
+        die('Invalid email format.');
     }
 
-    // Check if password and confirm password match
-    if ($password !== $confirm_password) {
-       // die('Passwords do not match.');
-    }
+    // Prepare a statement to check user credentials
+    $stmt = $conn->prepare('SELECT email, userpass FROM users WHERE email = ? AND userrole = ?');
+    $stmt->bind_param('ss', $email, $userrole);
+    $stmt->execute();
 
-    //echo $email;
-   //echo $userrole;
-$stmt = $conn->prepare('SELECT email, userpass FROM users WHERE email = ? AND userrole = ?');
-$stmt->bind_param('ss', $email, $userrole);
-$stmt->execute();
+    // Retrieve the result
+    $result = $stmt->get_result();
 
-$result = $stmt->get_result();
-if ($result->num_rows === 1) {
-    $user = $result->fetch_assoc();
-    if (password_verify($password, $user['userpass'])) {
-        session_start();
-        $_SESSION['email'] = $email;
-        $_SESSION['role'] = $userrole;
-        
-        if ($userrole === 'admin' ) {
-            header('Location: Admin_dashboard.php');
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        // Verify the password
+        if (password_verify($password, $user['userpass'])) {
+            // Start a session and store user details
+            session_start();
+            $_SESSION['email'] = $email;
+            $_SESSION['role'] = $userrole;
+
+            // Redirect based on role
+            if ($userrole === 'admin') {
+                header('Location: ../view/Admin_dashboard.php');
+            } elseif ($userrole === 'user') {
+                header('Location: ../view/regular_dashboard.php');
+            } else {
+                die('Invalid role specified.');
+            }
+            exit;
         } else {
-            header('Location: regular_dashboard.php');
+            die('Incorrect password.');
         }
-        exit;
     } else {
-        //echo 'Invalid password.';
+        die('No user found with the specified email and role.');
     }
-} else {
-    //echo 'No user found with this email and role.';
-}
+
     // Close the statement
     $stmt->close();
 }
+
 // Close the database connection
 $conn->close();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +90,7 @@ $conn->close();
             
             <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <a href="register.php"> Signup</a></p>
+        <p>Don't have an account? <a href="register.php">Sign up</a></p>
     </div>
 </body>
 </html>
