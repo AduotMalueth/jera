@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JERAConnect - About Us</title>
-    <link rel="stylesheet" href="../jera-main/css/about.css">
+    <link rel="stylesheet" href="../jera/css/about.css">
 </head>
 <body>
     <header class="header">

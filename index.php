@@ -15,7 +15,7 @@ if ($conn->connect_error) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JERAConnect - Home</title>
     <!-- Linking the CSS file -->
-    <link rel="stylesheet" href="./jera-main/css/index.css">
+    <link rel="stylesheet" href="./jera/css/index.css">
 </head>
 <body>
     <header class="header">
@@ -25,11 +25,11 @@ if ($conn->connect_error) {
         </div>
         <nav>
             <ul>
-                <li><a href="./jera-main/action/about.php">About Us</a></li>
-                <li><a href="./jera-main/action/services.php">Services</a></li>
-                <li><a href="./jera-main/view/register.php">Register Here</a></li>
-                <li><a href="./jera-main/view/login.php">Login</a></li>
-                <li><a href="./jera-main/action/team.php">Our Team</a></li>
+                <li><a href="./jera/action/about.php">About Us</a></li>
+                <li><a href="./jera/action/services.php">Services</a></li>
+                <li><a href="./jera/view/register.php">Register Here</a></li>
+                <li><a href="./jera/view/login.php">Login</a></li>
+                <li><a href="./jera/action/team.php">Our Team</a></li>
             </ul>
         </nav>
     </header>

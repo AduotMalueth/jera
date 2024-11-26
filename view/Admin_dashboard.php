@@ -40,16 +40,16 @@ if ($topUsersResult) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../jera-main/css/Admin_dashboard.css">
+    <link rel="stylesheet" href="../jera/css/Admin_dashboard.css">
 </head>
 <body>
     <nav class="navbar">
         <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
         <ul>
-            <li><a href="../jera-main/function/users.php">Users</a></li>
-            <li><a href="../jera-main/function/buy_Coconuts.php">Available coconuts</a></li>
-            <li><a href="../jera-main/view/regular_dashboard.php">User Admin_dashboard</a></li>
-            <li><a href="../jera-main/action/logout.php">Logout</a>
+            <li><a href="../jera/function/users.php">Users</a></li>
+            <li><a href="../jera/function/buy_Coconuts.php">Available coconuts</a></li>
+            <li><a href="../jera/view/regular_dashboard.php">User Admin_dashboard</a></li>
+            <li><a href="../jera/action/logout.php">Logout</a>
            <!--- <li><a href="login.html">login</a></li>-->
            <!--- <li><a href="Signup.html">signup</a></li>-->
         </ul>
