@@ -42,9 +42,9 @@ if ($result->num_rows === 1) {
         $_SESSION['role'] = $userrole;
         
         if ($userrole === 'admin' ) {
-            header('Location: ../view/Admin_dashboard.php');
+            header('Location: Admin_dashboard.php');
         } else {
-            header('Location: ../view/regular_dashboard.php');
+            header('Location: regular_dashboard.php');
         }
         exit;
     } else {
