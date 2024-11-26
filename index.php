@@ -15,7 +15,7 @@ if ($conn->connect_error) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JERAConnect - Home</title>
     <!-- Linking the CSS file -->
-    <link rel="stylesheet" href="./jera/css/index.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <header class="header">
