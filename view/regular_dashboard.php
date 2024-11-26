@@ -1,0 +1,74 @@
+<?php
+session_start();
+// Include your database connection
+//include './db/config.php';
+include('../db/config.php');
+// Admin dashboard content
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Dashboard</title>
+    <link rel="stylesheet" href="../jera-main/css/regular_dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+</head>
+<body>
+    <header class="header">
+        <h1>Regular Dashboard</h1>
+        <p>Welcome to the user dashboard System </p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../function/buy_Coconuts.php" onclick="showSection('buySection')">Coconuts used for!</a></li> 
+            <li><a href="../function/add_comments.php" onclick="showSection('commentsSection')">Comments</a></li>
+            <li><a href="purchase_Summary.php" onclick="showSection('summarySection')">Purchase here!</a></li>
+            <li><a href="../action/logout.php">Logout</a>
+        </ul>
+    </nav>
+    <main>
+        <!-- Buy Coconuts Section -->
+        <section id="buySection" class="hidden">
+            <h2>Buy Coconuts</h2>
+            <form action="buy_Coconuts.php" method="post">
+                <label for="region">Select Region:</label>
+                <select name="region" id="region">
+                    <option value="Region A">Region A</option>
+                    <option value="Region B">Region B</option>
+                    <option value="Region C">Region C</option>
+                    <option value="Region D">Region D</option>
+                </select>
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" id="quantity" min="1" required>
+                <button type="submit">Buy</button>
+            </form>
+        </section>
+
+        <!-- Comments Section -->
+        <section id="commentsSection" class="hidden">
+            <h2>Comments</h2>
+            <form action="add_comments.php" method="post">
+                <label for="comment">Add a Comment:</label>
+                <textarea name="comment" id="comment" rows="4" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Product Distribution by Region Section -->
+        <section id="regionsSection" class="hidden">
+            <h2>Product Distribution by Region</h2>
+            <canvas id="regionPieChart" width="400" height="400"></canvas>
+        </section>
+
+        <!-- Purchase Summary Section -->
+        <section id="summarySection" class="hidden">
+            <h2>My Coconut Purchases</h2>
+            <div id="purchaseSummary">
+                <p>Total Coconuts Purchased: <span id="totalCoconuts">Loading...</span></p>
+                <p>Last Purchase Date: <span id="lastPurchaseDate">Loading...</span></p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

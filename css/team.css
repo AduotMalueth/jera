@@ -1,0 +1,81 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/pexels-photo-12881020.jpg'); /* Background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: #212529;
+    line-height: 1.6;
+}
+
+/* Go Back Button */
+.go-back {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+.go-back:hover {
+    background-color: #0056b3;
+}
+
+/* Team Section */
+.team-section {
+    padding: 5% 2%;
+    text-align: center;
+}
+.team-section h1 {
+    margin-bottom: 3%;
+    font-size: 2.5em;
+    color: #222;
+}
+
+/* Team Members Grid */
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2%;
+}
+
+/* Team Member Card */
+.member {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5%;
+    width: 20%; /* Percentage-based width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 200px; /* Ensure minimum size for very small screens */
+}
+
+/* Team Member Image */
+.member img {
+    width: 50%; /* 50% of the card width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5%;
+}
+
+/* Team Member Details */
+.member h2 {
+    font-size: 1.2em; /* Smaller font size */
+    margin-bottom: 5%;
+    color: #444;
+}
+.member p {
+    margin: 3% 0;
+    font-size: 0.9em; /* Smaller font size */
+    color: #555;
+}

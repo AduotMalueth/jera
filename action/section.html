@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Sections</title>
+    <style>
+       /* Body Styling */
+body {
+    color: var(--default-color);
+    background-image: url('images/stock-photo-tropical-fruit-palm-tree-with-green-leaves-and-fruit-coconut-tree-in-indonesia-bunch-of-coconut-2491858753.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: var(--default-font);
+    margin: 0;
+    padding: 0;
+}
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+        section {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        section.active {
+            display: block;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll("section").forEach(section => {
+                section.classList.remove("active");
+            });
+
+            // Show the selected section
+            document.getElementById(sectionId).classList.add("active");
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('buySection')">Users Coconuts</a></li>
+            <li><a href="#" onclick="showSection('commentsSection')">Comments</a></li>
+            <li><a href="#" onclick="showSection('deleteSection')">Delete Purchases</a></li>
+            <li><a href="#" onclick="showSection('regionsSection')">Check Regions</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sections -->
+    <section id="buySection">
+        <h2>Users Coconuts</h2>
+        <p>This section shows all users who purchased coconuts.</p>
+    </section>
+
+    <section id="commentsSection">
+        <h2>Comments</h2>
+        <p>This section displays user comments about their purchases.</p>
+    </section>
+
+    <section id="deleteSection">
+        <h2>Delete Purchases</h2>
+        <p>Use this section to manage and delete purchase records.</p>
+    </section>
+
+    <section id="regionsSection">
+        <h2>Check Regions</h2>
+        <p>This section provides information on available regions for delivery.</p>
+    </section>
+</body>
+</html>
