@@ -20,9 +20,9 @@
     </nav>
     <section class="content">
         <h2>Our Mission</h2>
-        <p>To empower coconut farmers and buyers in Ghana by creating a seamless platform for communication, collaboration, and community-building.</p>
+        <p>To empower coconut sellers and buyers in Ghana by creating a seamless platform for communication, collaboration, and community-building.</p>
         <h2>Our Vision</h2>
-        <p>To foster growth and opportunities for the coconut industry through innovation and technology.</p>
+        <p>To foster growth and opportunities for the coconut industry through connection and available.</p>
     </section>
     <footer class="footer">
         &copy; 2024 JERAConnect. All rights reserved.

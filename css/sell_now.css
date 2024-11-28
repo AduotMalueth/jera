@@ -1,0 +1,167 @@
+/* General Styles */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/pexels-photo-4631071.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+    line-height: 1.6;
+}
+/* Header */
+header {
+    background-color: #3e8e41;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Section */
+#form-section {
+    margin-bottom: 40px;
+}
+
+#form-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #3e8e41;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form input, form select, form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+form input[type="file"] {
+    padding: 5px;
+}
+
+form button {
+    background-color: #3e8e41;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #347a34;
+}
+
+/* Product Listings */
+#product-list-section {
+    margin-top: 40px;
+}
+
+#product-list-section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #3e8e41;
+}
+
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-item p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.product-item p strong {
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #3e8e41;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    #form-section h2 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    #product-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    footer {
+        position: relative;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #product-list {
+        grid-template-columns: 1fr;
+    }
+
+    .product-item {
+        padding: 15px;
+    }
+}

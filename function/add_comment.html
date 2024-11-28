@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Section</title>
+    <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+    <div class="comment-section">
+        <h1>Comment Section</h1>
+
+        <!-- Comment Form -->
+        <form action="comment.php" method="POST" id="commentForm">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Enter your email" required>
+
+            <label for="contact">Contact:</label>
+            <input type="text" name="contact" id="contact" placeholder="Enter your contact number" required>
+
+            <label for="type">Type:</label>
+            <select name="type" id="type" required>
+                <option value="buyer">Buyer</option>
+                <option value="seller">Seller</option>
+            </select>
+
+            <label for="region">Region:</label>
+            <input type="text" name="region" id="region" placeholder="Enter your region" required>
+
+            <label for="comment">Comment:</label>
+            <textarea name="comment" id="comment" placeholder="Write your comment here..." required></textarea>
+
+            <button type="submit" name="post_comment">Post Comment</button>
+        </form>
+
+        <!-- Displaying Previous Comments -->
+        <div id="commentsList">
+            <h3>Previous Comments</h3>
+            <ul>
+                <!-- PHP code to fetch and display comments from database will go here -->
+                <?php foreach ($comments as $comment): ?>
+                    <li>
+                        <p><strong><?php echo htmlspecialchars($comment['name']); ?>:</strong> <?php echo htmlspecialchars($comment['comment']); ?></p>
+                        <small>Posted on <?php echo date('Y-m-d H:i:s', strtotime($comment['created_at'])); ?></small>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../js/comment.js"></script>
+</body>
+</html>

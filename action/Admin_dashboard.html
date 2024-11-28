@@ -4,24 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="Admin_dashboard.css">
+    <link rel="stylesheet" href="../css/Admin_dashboard.css">
 </head>
 <body>
     <nav class="navbar">
         <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
         <ul>
-            <li><a href="users.html">Users</a></li>
+            <li><a href="users.html">Users management</a></li>
             <li><a href="Buy_Coconuts.html">Available coconuts</a></li>
             <li><a href="regular_dashboard.html">User Admin_dashboard</a></li>
-            <li><a href="logout.php">Logout</a>
-           <!--- <li><a href="login.html">login</a></li>-->
-           <!--- <li><a href="Signup.html">signup</a></li>-->
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
 
     <section class="analytics-section">
-
-        
         <div class="stats">
             <div class="stat-item users">
                 <i class="fas fa-users stat-icon"></i> 
@@ -39,6 +35,7 @@
                 <p id="avg-rating">4.5</p> 
             </div>
         </div>
+
         <!-- Bar Chart: coconuts Created Per Month -->
         <div>
             <h2>coconuts Created Per Month</h2>
@@ -65,43 +62,118 @@
                 </div>
             </div>
         </div>
+
         <div class="top-users-list">
             <h2>Top 5 Most Active Users</h2>
-            <ul>
+
+            <ul id="users-list">
                 <li>
                     <span class="user-name">Kom</span><br>
                     <span class="user-coconuts">25 coconuts</span>
+                    <button onclick="editUser(0)">Edit</button>
+                    <button onclick="deleteUser(0)">Delete</button>
                 </li>
                 <li>
                     <span class="user-name">Nana</span><br>
                     <span class="user-coconuts">22 coconuts</span>
+                    <button onclick="editUser(1)">Edit</button>
+                    <button onclick="deleteUser(1)">Delete</button>
                 </li>
                 <li>
                     <span class="user-name">Ben</span><br>
                     <span class="user-coconuts">20 coconuts</span>
+                    <button onclick="editUser(2)">Edit</button>
+                    <button onclick="deleteUser(2)">Delete</button>
                 </li>
                 <li>
                     <span class="user-name">John</span><br>
                     <span class="user-coconuts">38 coconuts</span>
+                    <button onclick="editUser(3)">Edit</button>
+                    <button onclick="deleteUser(3)">Delete</button>
                 </li>
                 <li>
                     <span class="user-name">Kwame</span><br>
                     <span class="user-coconuts">25 coconuts</span>
+                    <button onclick="editUser(4)">Edit</button>
+                    <button onclick="deleteUser(4)">Delete</button>
                 </li>
             </ul>
+
+            <h3>Add New User</h3>
+            <form id="add-user-form">
+                <input type="text" id="new-user-name" placeholder="User Name" required>
+                <input type="number" id="new-user-coconuts" placeholder="Number of Coconuts" required>
+                <button type="submit">Add User</button>
+            </form>
         </div>
     </section>
 
     <script>
+        // Toggle menu for navigation
         function toggleMenu() {
             const navbar = document.querySelector('.navbar');
             const ul = navbar.querySelector('ul');
             ul.classList.toggle('show');
         }
 
-       
-        document.getElementById('total-users').innerText = 5000; 
-        document.getElementById('total-coconuts').innerText = 420; 
+        // Initial data
+        const users = [
+            { name: "Kom", coconuts: 25 },
+            { name: "Nana", coconuts: 22 },
+            { name: "Ben", coconuts: 20 },
+            { name: "John", coconuts: 38 },
+            { name: "Kwame", coconuts: 25 }
+        ];
+
+        // Function to display users
+        function displayUsers() {
+            const usersList = document.getElementById("users-list");
+            usersList.innerHTML = "";
+            users.forEach((user, index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <span class="user-name">${user.name}</span><br>
+                    <span class="user-coconuts">${user.coconuts} coconuts</span>
+                    <button onclick="editUser(${index})">Edit</button>
+                    <button onclick="deleteUser(${index})">Delete</button>
+                `;
+                usersList.appendChild(li);
+            });
+        }
+
+        // Function to handle adding a new user
+        document.getElementById("add-user-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("new-user-name").value;
+            const coconuts = parseInt(document.getElementById("new-user-coconuts").value);
+            users.push({ name, coconuts });
+            displayUsers();
+            document.getElementById("new-user-name").value = "";
+            document.getElementById("new-user-coconuts").value = "";
+        });
+
+        // Function to delete a user
+        function deleteUser(index) {
+            users.splice(index, 1);
+            displayUsers();
+        }
+
+        // Function to edit a user (set coconuts manually)
+        function editUser(index) {
+            const newName = prompt("Enter new name", users[index].name);
+            const newCoconuts = prompt("Enter new number of coconuts", users[index].coconuts);
+            if (newName !== null && newCoconuts !== null) {
+                users[index] = { name: newName, coconuts: parseInt(newCoconuts) };
+                displayUsers();
+            }
+        }
+
+        // Display users on initial load
+        displayUsers();
+        
+        // Update stats
+        document.getElementById('total-users').innerText = users.length;
+        document.getElementById('total-coconuts').innerText = users.reduce((acc, user) => acc + user.coconuts, 0);
     </script>
 </body>
 </html>

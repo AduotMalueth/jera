@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Summary</title>
+    <link rel="stylesheet" href="../css/purchase.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Purchase Summary</h1>
+    </header>
+    <main>
+        <section class="summary-section">
+            <h2>Summary of Coconut Purchases</h2>
+            <div class="summary-details">
+                <p>Total Coconuts Purchased: <span id="totalCoconuts">0</span></p>
+                <p>Last Purchase Date: <span id="lastPurchaseDate">N/A</span></p>
+            </div>
+        </section>
+
+        <section class="history-section">
+            <h2>Purchase History</h2>
+            <button onclick="openAddPurchaseModal()">Add Purchase</button>
+            <table id="purchaseHistoryTable">
+                <thead>
+                    <tr>
+                        <th>Purchase ID</th>
+                        <th>Date</th>
+                        <th>Region</th>
+                        <th>Quantity</th>
+                        <th>Total price</th>
+                        <th>Seller</th>
+                        <th>Payment Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="purchaseTableBody">
+                    <!-- Dynamic Content -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Coconut Management System</p>
+    </footer>
+
+    <!-- Add Purchase Modal -->
+    <div id="addPurchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addPurchaseModal')">&times;</span>
+            <h3>Add Purchase</h3>
+            <form id="addPurchaseForm">
+                <label for="purchaseDate">Date:</label>
+                <input type="date" id="purchaseDate" required>
+
+                <label for="purchaseRegion">Region:</label>
+                <input type="text" id="purchaseRegion" required>
+
+                <label for="purchaseQuantity">Quantity:</label>
+                <input type="number" id="purchaseQuantity" required>
+
+                <label for="purchaseCost">Total price:</label>
+                <input type="number" id="purchaseCost" required>
+
+                <label for="purchaseSeller">Seller:</label>
+                <input type="text" id="purchaseSeller" required>
+
+                <label for="purchaseStatus">Payment Status:</label>
+                <select id="purchaseStatus" required>
+                    <option value="Paid">Paid</option>
+                    <option value="Pending">Pending</option>
+                </select>
+
+                <button type="button" onclick="addPurchase()">Add Purchase</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../js/purchase.js"></script>
+</html>

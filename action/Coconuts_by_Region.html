@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coconuts by Region</title>
+    <link rel="stylesheet" href="../css/region.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Coconut Distribution by Region</h1>
+    </header>
+    <main>
+        <section class="chart-section">
+            <h2>Coconuts Distribution Across Regions</h2>
+            <canvas id="coconutChart" width="400" height="400"></canvas>
+        </section>
+        <section class="data-section">
+            <h2>Regional Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Region</th>
+                        <th>Coconuts Produced</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Western</td>
+                        <td id="westernCount">Loading...</td>
+                    </tr>
+                    <tr>
+                        <td>Central</td>
+                        <td id="centralCount">Loading...</td>
+                    </tr>
+                    <tr>
+                        <td>Greater Accra</td>
+                        <td id="greaterAccraCount">Loading...</td>
+                    </tr>
+                    <tr>
+                        <td>Eastern</td>
+                        <td id="easternCount">Loading...</td>
+                    </tr>
+                    <tr>
+                        <td>Volta</td>
+                        <td id="voltaCount">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Coconut Management System</p>
+    </footer>
+
+    <script>
+        // Replace this data with dynamic data from the backend
+        const regionData = {
+            Western: 1500,
+            Central: 1200,
+            GreaterAccra: 900,
+            Eastern: 800,
+            Volta: 700
+        };
+
+        // Populate table dynamically
+        document.getElementById('westernCount').innerText = regionData.Western;
+        document.getElementById('centralCount').innerText = regionData.Central;
+        document.getElementById('greaterAccraCount').innerText = regionData.GreaterAccra;
+        document.getElementById('easternCount').innerText = regionData.Eastern;
+        document.getElementById('voltaCount').innerText = regionData.Volta;
+
+        // Generate the chart
+        const ctx = document.getElementById('coconutChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Western', 'Central', 'Greater Accra', 'Eastern', 'Volta'],
+                datasets: [{
+                    label: 'Coconuts by Region',
+                    data: [
+                        regionData.Western,
+                        regionData.Central,
+                        regionData.GreaterAccra,
+                        regionData.Eastern,
+                        regionData.Volta
+                    ],
+                    backgroundColor: [
+                        '#FF6384', // Western
+                        '#36A2EB', // Central
+                        '#FFCE56', // Greater Accra
+                        '#4BC0C0', // Eastern
+                        '#9966FF'  // Volta
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return `${tooltipItem.label}: ${tooltipItem.raw} coconuts`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

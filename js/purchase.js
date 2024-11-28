@@ -93,3 +93,4 @@ function closeModal(modalId) {
 
 // Initialize
 renderPurchaseHistory();
+

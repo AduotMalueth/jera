@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($userrole === 'admin') {
                 header('Location: ../view/Admin_dashboard.php');
             } elseif ($userrole === 'user') {
-                header('Location: ../view/regular_dashboard.php');
+                header('Location: ../view/Regular_Admin_dashboard.php');
             } else {
                 die('Invalid role specified.');
             }

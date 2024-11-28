@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coconut Delights</title>
-    <link rel="stylesheet" href="..Connect1/css/buy_coconut.css">
+    <link rel="stylesheet" href="../css/buy_coconut.css">
     <style>
         .star-rating {
             display: flex;
